@@ -1,7 +1,11 @@
 
 import TransactionItem from "./TransactionItem";
 
-function TransactionList({ transactions }) {
+function TransactionList({
+  transactions,
+  onEditTransaction,
+  onDeleteTransaction,
+}) {
   const sortedTransactions = [...transactions].sort((a, b) =>
     b.date.localeCompare(a.date)
   );
@@ -28,6 +32,8 @@ function TransactionList({ transactions }) {
             <TransactionItem
               key={transaction.id}
               transaction={transaction}
+              onEditTransaction={onEditTransaction}
+              onDeleteTransaction={onDeleteTransaction}
             />
           ))}
         </div>
